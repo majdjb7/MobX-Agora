@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import Item from './Item'
 import { observer } from 'mobx-react'
 
-export default class Market extends Component {
+class Market extends Component {
     render() {
+        console.log(this.props.store)
         return (
             <div>
                 <h1>Market:</h1>
-                <Item />
+                {this.props.store.list.map(i => <Item item={i} store={this.props.store}/>)}
             </div>
         )
     }
 }
+
+export default observer(Market)

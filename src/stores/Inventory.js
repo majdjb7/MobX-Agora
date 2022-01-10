@@ -28,7 +28,7 @@ export class Inventory {
     buyItem = (name) => {
         let item = this.list.find(i => i.name === name)
         item.quantity -= 1
-        let itemIndex = this.list.indexOf(item.name) //indexOf(item)
+        let itemIndex = this.list.indexOf(item) //indexOf(item)
         if(item.quantity == 0) {
             this.list.splice(itemIndex, 1)
         }

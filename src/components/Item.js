@@ -1,30 +1,23 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react'
 import '../App.css'
-export default class Item extends Component {
-    checkItem = (e) => {
-    this.props.store.checkItem(e.target.value)
+class Item extends Component {
+
+  buyItem = () => {
+    this.props.store.buyItem(this.props.item.name)
   }
-  editItem = () => {
-    //your code here
-  }
-  deleteItem = () => {
-    //your code here
-  }
+
   render() {
     let item = this.props.item
+    console.log(item)
     return (
-        // <div className = {item.completed ? "crossed": null}>
-        //   <input 
-        //     type="checkbox"
-        //     onClick = {this.checkItem} 
-        //     value={item.name}
-        //   /> 
-        //   {item.name} 
-        // </div>
         <div>
             <h1>Item</h1>
+            <li>{item.quantity} {item.name} available at {item.price} per item</li>
+            <button onClick={this.buyItem}>BUY</button>
         </div>
       )
   }
 }
+
+export default observer(Item)

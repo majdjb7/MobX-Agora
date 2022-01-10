@@ -2,10 +2,10 @@ import { observable, makeObservable } from 'mobx'
 
 export class Item {
 
-    constructor(name, price, quantity) {
+    constructor(name, price=0, quantity=1) {
         this.name = name
-        this.price = 0
-        this.quantity = 1
+        this.price = price
+        this.quantity = quantity
 
         makeObservable(this, {
             name: observable,
