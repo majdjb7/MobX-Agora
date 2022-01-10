@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Item from './Item'
+import { observer } from 'mobx-react'
 
 export default class Market extends Component {
     render() {
