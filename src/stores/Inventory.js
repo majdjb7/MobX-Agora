@@ -9,7 +9,6 @@ export class Inventory {
         makeObservable(this, {
             list: observable,
             length: observable,
-            checkItem: action,
             addItem: action,
             buyItem: action,
             changePriceOfItem: action
@@ -17,10 +16,6 @@ export class Inventory {
 
     }
 
-    checkItem = (name) => {
-        let item = this.list.find(i => i.name === name)
-        item.completed = !item.completed
-    } 
     addItem = (name, price, quantity) => {
         let item = this.list.find(i => i.name === name)
         item ? item.quantity +=1 : this.list.push(item)
