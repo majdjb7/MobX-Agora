@@ -17,14 +17,16 @@ export class Inventory {
     }
 
     addItem = (name, price, quantity) => {
-        let item = this.list.find(i => i.name === name)
-        item ? item.quantity +=1 : this.list.push(item)
+        let item = this.list.find(i => (i.name).toLowerCase() === (name).toLowerCase())
+        let newItem = new Item(name, price, quantity)
+
+        item ? item.quantity +=1 : this.list.push(newItem)
     }
     buyItem = (name) => {
         let item = this.list.find(i => i.name === name)
         item.quantity -= 1
         let itemIndex = this.list.indexOf(item) //indexOf(item)
-        if(item.quantity == 0) {
+        if(item.quantity < 1) {
             this.list.splice(itemIndex, 1)
         }
     }
