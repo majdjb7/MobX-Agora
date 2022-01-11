@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Item from './Item'
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 
 class Market extends Component {
     constructor() {
@@ -49,10 +49,11 @@ class Market extends Component {
                     placeholder="Quantity of Item"
                 />
                 <button onClick={this.addItem}>Add</button>
+                <h2>Total Items: {this.props.store.numItems}</h2>
                 {this.props.store.list.map(i => <Item key={i.name} item={i} store={this.props.store}/>)}
             </div>
         )
     }
 }
 
-export default observer(Market)
+export default inject("store")(observer(Market))

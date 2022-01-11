@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react'
+import { observer, inject } from 'mobx-react'
 import '../App.css'
 class Item extends Component {
 
@@ -29,4 +29,4 @@ class Item extends Component {
     }
 }
 
-export default observer(Item)
+export default inject("store", "Item")(observer(Item))

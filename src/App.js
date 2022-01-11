@@ -13,7 +13,7 @@ class App extends Component {
         <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/market" element={<Market store={this.props.store}/>} />
+            <Route path="/market" element={<Market/>} />
           </Routes>
       </Router>
     );

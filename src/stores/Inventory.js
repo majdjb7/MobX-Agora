@@ -1,4 +1,4 @@
-import { observable, action, makeObservable } from 'mobx'
+import { computed, observable, action, makeObservable } from 'mobx'
 import { Item } from './Item'
 
 export class Inventory {
@@ -11,9 +11,14 @@ export class Inventory {
             length: observable,
             addItem: action,
             buyItem: action,
-            changePriceOfItem: action
+            changePriceOfItem: action,
+            numItems: computed
         })
 
+    }
+
+    get numItems() {
+        return this.list.length
     }
 
     addItem = (name, price, quantity) => {
