@@ -25,7 +25,7 @@ export class Inventory {
         let item = this.list.find(i => (i.name).toLowerCase() === (name).toLowerCase())
         let newItem = new Item(name, price, quantity)
 
-        item ? item.quantity +=1 : this.list.push(newItem)
+        item ? item.quantity +=quantity : this.list.push(newItem)
     }
     buyItem = (name) => {
         let item = this.list.find(i => i.name === name)
